@@ -1,4 +1,4 @@
-package me.pushkaranand.spendo.db.entity
+package me.pushkaranand.spendo.data.db.entity
 
 import androidx.room.Entity
 import androidx.room.Ignore
@@ -9,14 +9,16 @@ import androidx.room.PrimaryKey
     tableName = "transactions"
 )
 data class Transaction(
+
+    @PrimaryKey(autoGenerate = true)
+    var transactionID: Long,
     var amount: Double,
     var type: String,
     var category: String,
     var date: String,
     var notes: String?
+
 ) {
-    @PrimaryKey(autoGenerate = true)
-    var transactionID: Long = 0
 
     @Ignore
     private val spilt = date.split("-")
@@ -32,4 +34,10 @@ data class Transaction(
         year = str[2].toInt()
         this.date = date
     }
+
+    enum class TYPE(val type: String) {
+        DEBIT("Debit"),
+        CREDIT("Credit")
+    }
+
 }

@@ -13,8 +13,8 @@ import kotlinx.android.synthetic.main.activity_category_display.*
 import kotlinx.android.synthetic.main.content_category_display.*
 import me.pushkaranand.spendo.R
 import me.pushkaranand.spendo.adapters.CategoriesRecyclerViewAdapter
-import me.pushkaranand.spendo.db.entity.Category
-import me.pushkaranand.spendo.fragments.BottomNavigationDrawerFragment
+import me.pushkaranand.spendo.data.db.entity.Category
+import me.pushkaranand.spendo.ui.fragments.BottomNavigationDrawerFragment
 import me.pushkaranand.spendo.viewmodel.CategoryViewModel
 
 class CategoryDisplayActivity : AppCompatActivity() {
@@ -35,7 +35,8 @@ class CategoryDisplayActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item!!.itemId) {
             android.R.id.home -> {
-                val bottomNavDrawerFragment = BottomNavigationDrawerFragment()
+                val bottomNavDrawerFragment =
+                    BottomNavigationDrawerFragment()
                 bottomNavDrawerFragment.show(supportFragmentManager, bottomNavDrawerFragment.tag)
             }
         }
@@ -92,7 +93,7 @@ class CategoryDisplayActivity : AppCompatActivity() {
                 title(R.string.add_category_dialog_title)
                 input(hintRes = R.string.add_category_dialog_name_hint) { _, charSequence ->
                     val name = charSequence.toString()
-                    val category = Category(name = name, spend = 0.0, spendLimit = 0.0)
+                    val category = Category(0, name = name, spend = 0.0, spendLimit = 0.0)
                     categoryViewModel?.insert(category)
                 }
                 positiveButton(R.string.add_category_dialog_positive) { }

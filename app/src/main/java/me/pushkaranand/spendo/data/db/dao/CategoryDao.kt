@@ -1,11 +1,11 @@
-package me.pushkaranand.spendo.db.dao
+package me.pushkaranand.spendo.data.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import me.pushkaranand.spendo.db.entity.Category
+import me.pushkaranand.spendo.data.db.entity.Category
 
 @Dao
 interface CategoryDao {
@@ -18,6 +18,9 @@ interface CategoryDao {
 
     @Insert
     fun newCategory(category: Category)
+
+    @Insert
+    suspend fun insert(category: Category)
 
     @Update
     fun updateCategories(vararg category: Category)

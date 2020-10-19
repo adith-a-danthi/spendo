@@ -1,4 +1,4 @@
-package me.pushkaranand.spendo.fragments
+package me.pushkaranand.spendo.ui.fragments
 
 import android.app.Dialog
 import android.content.ActivityNotFoundException
@@ -14,8 +14,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottomsheet.*
 import me.pushkaranand.spendo.R
 import me.pushkaranand.spendo.ui.CategoryDisplayActivity
-import me.pushkaranand.spendo.ui.HomeActivity
 import me.pushkaranand.spendo.ui.SettingsActivity
+import me.pushkaranand.spendo.ui.activities.home.HomeActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
